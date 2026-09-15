@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculadora para auxiliar no fechamento de caixa de cobradores de transporte coletivo.">
+  <title>FechaBus | Fechamento de caixa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="topo">
+      <div>
+        <span class="tag">Projeto de portfólio</span>
+        <h1>FechaBus</h1>
+        <p>Fechamento simples de uma jornada de cobrador.</p>
+      </div>
+      <button id="btnTema" class="tema" type="button" aria-label="Alternar tema">◐</button>
+    </header>
+
+    <section class="card">
+      <h2>Dados da jornada</h2>
+      <div class="grid">
+        <label>Roleta inicial
+          <input id="roletaInicial" type="number" min="0" inputmode="numeric" placeholder="Ex.: 12540">
+        </label>
+        <label>Roleta final
+          <input id="roletaFinal" type="number" min="0" inputmode="numeric" placeholder="Ex.: 12718">
+        </label>
+        <label>Valor da tarifa
+          <input id="tarifa" type="number" min="0" step="0.01" inputmode="decimal" placeholder="R$ 5,50">
+        </label>
+        <label>Passagens sem recebimento em dinheiro
+          <input id="vales" type="number" min="0" value="0" inputmode="numeric">
+          <small>Ex.: vales, gratuidades ou registros que não entram no caixa.</small>
+        </label>
+        <label>Dinheiro apurado no caixa
+          <input id="dinheiro" type="number" min="0" step="0.01" inputmode="decimal" placeholder="R$ 0,00">
+        </label>
+      </div>
+      <p id="erro" class="erro" role="alert"></p>
+      <div class="acoes">
+        <button id="calcular" class="primario" type="button">Calcular fechamento</button>
+        <button id="limpar" class="secundario" type="button">Limpar</button>
+      </div>
+    </section>
+
+    <section id="resultado" class="card resultado" aria-live="polite">
+      <div class="resultado-topo">
+        <div>
+          <span class="tag">Resumo</span>
+          <h2>Resultado da jornada</h2>
+        </div>
+        <span id="statusCaixa" class="status">Aguardando cálculo</span>
+      </div>
+      <div class="metricas">
+        <div><span>Passageiros registrados</span><strong id="passageiros">—</strong></div>
+        <div><span>Passagens pagas</span><strong id="pagantes">—</strong></div>
+        <div><span>Receita esperada</span><strong id="receita">—</strong></div>
+        <div><span>Valor apurado</span><strong id="apurado">—</strong></div>
+      </div>
+      <div class="diferenca">
+        <span>Diferença de caixa</span>
+        <strong id="diferenca">—</strong>
+        <p id="mensagemDiferenca">Preencha os dados para conferir o fechamento.</p>
+      </div>
+    </section>
+
+    <section class="sobre">
+      <h2>Por que criei este projeto?</h2>
+      <p>A ideia nasceu da rotina do transporte coletivo. O fechamento envolve números simples, mas um erro de digitação ou uma conta feita com pressa pode gerar diferença no caixa. Este projeto transforma essa situação em uma aplicação web pequena e direta.</p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
